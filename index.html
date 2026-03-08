@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>School AI Assistant</title>
+<style>
+body{
+font-family: Arial;
+background:#f4f6fb;
+text-align:center;
+margin:0;
+padding:0;
+}
+
+header{
+background:#1e3a8a;
+color:white;
+padding:20px;
+font-size:24px;
+}
+
+.container{
+margin-top:40px;
+}
+
+select,input{
+padding:10px;
+width:250px;
+margin:10px;
+border-radius:6px;
+border:1px solid #ccc;
+}
+
+button{
+padding:10px 20px;
+background:#2563eb;
+color:white;
+border:none;
+border-radius:6px;
+cursor:pointer;
+}
+
+button:hover{
+background:#1d4ed8;
+}
+
+#chatbox{
+margin-top:30px;
+background:white;
+width:60%;
+margin-left:auto;
+margin-right:auto;
+padding:20px;
+border-radius:10px;
+box-shadow:0 0 10px rgba(0,0,0,0.1);
+}
+
+.message{
+margin:10px;
+}
+</style>
+</head>
+
+<body>
+
+<header>School AI Assistant</header>
+
+<div class="container">
+
+<h3>Select Your School</h3>
+
+<select id="school">
+<option>Chercher Secondary School</option>
+<option>Smart Digital School</option>
+<option>Tawbaa School</option>
+<option>Unity Academy</option>
+<option>Future Star School</option>
+</select>
+
+<br>
+
+<input id="userInput" placeholder="Ask something...">
+
+<br>
+
+<button onclick="chat()">Send</button>
+
+<div id="chatbox"></div>
+
+</div>
+
+<script>
+
+function chat(){
+
+let input = document.getElementById("userInput").value.toLowerCase()
+let school = document.getElementById("school").value
+let chatbox = document.getElementById("chatbox")
+
+let reply = ""
+
+if(input.includes("hello") || input.includes("hi")){
+reply = "Hello! Welcome to " + school + " AI assistant."
+}
+
+else if(input.includes("timetable")){
+reply = "Timetable information is available from your school portal."
+}
+
+else if(input.includes("result")){
+reply = "Results are provided by the school administration office."
+}
+
+else if(input.includes("teacher")){
+reply = "Please contact the school office for teacher information."
+}
+
+else if(input.includes("attendance")){
+reply = "Attendance is recorded daily by your teachers."
+}
+
+else{
+reply = "I am a School AI Assistant. Ask about timetable, results, teachers, or attendance."
+}
+
+chatbox.innerHTML += "<div class='message'><b>You:</b> "+input+"</div>"
+chatbox.innerHTML += "<div class='message'><b>AI:</b> "+reply+"</div>"
+
+document.getElementById("userInput").value=""
+
+}
+
+</script>
+
+</body>
+</html>
+
+
